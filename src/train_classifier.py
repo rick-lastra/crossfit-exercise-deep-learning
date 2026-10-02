@@ -1,4 +1,4 @@
-"""Python code exported from the course Phase III notebook. Review paths and data access before use."""
+"""Python code exported from the course project workflow notebook. Review paths and data access before use."""
 
 import tensorflow as tf
 from tensorflow import keras
@@ -122,14 +122,14 @@ def graficar_matriz_confusion(model, ds, class_names, name="Modelo"):
     plt.figure(figsize=(12, 10))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
                 xticklabels=class_names, yticklabels=class_names)
-    plt.title(f'Matriz de Confusión: {name} (Fase III)')
+    plt.title(f'Matriz de Confusión: {name} (project workflow)')
     plt.ylabel('Clase Real')
     plt.xlabel('Predicción')
     plt.xticks(rotation=45, ha='right')
     plt.show()
 
     # Reporte de Clasificación
-    print(f"\nReporte de Clasificación Detallado - Fase III ({name}):")
+    print(f"\nReporte de Clasificación Detallado - project workflow ({name}):")
     print(classification_report(y_true, y_pred, target_names=class_names))
 
 # Ejecución de comparativa visual
