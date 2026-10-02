@@ -1,20 +1,44 @@
 # CrossFit Exercise Image Classification with Transfer Learning
 
-Final phase of a deep-learning project that applies transfer learning to classify CrossFit exercises. The report describes the Kaggle Workout/Exercise Images dataset as containing 13,853 images across 22 classes.
+Final phase of a deep-learning project exploring automatic recognition of CrossFit movements from images. The report describes the Kaggle **Workout/Exercise Images** dataset as **13,853 images across 22 exercise classes**.
 
-## Project highlights
+## Experiment
 
-- Adapted and compared ImageNet-pretrained ResNet50 and VGG16 models for exercise-image classification.
-- Evaluated model predictions with classification reports and confusion matrices.
-- The notebook's classification reports show 34% and 69% accuracy across the evaluated models.
+The report compares ImageNet-pretrained **ResNet50** and **VGG16** under the same setup: 10 training epochs with the pretrained base frozen. Both are evaluated with classification reports, confusion matrices, and learning curves.
+
+```mermaid
+flowchart LR
+    A[13,853 exercise images<br/>22 classes] --> B[Image preprocessing]
+    B --> C[ImageNet transfer learning]
+    C --> D[ResNet50<br/>34% accuracy]
+    C --> E[VGG16<br/>69% accuracy]
+    D --> F[Classification report<br/>Confusion matrix]
+    E --> F
+    F --> G[Compare errors and learning curves]
+```
+
+| Model | Reported overall accuracy | Report observation |
+|---|---:|---|
+| ResNet50 | 34% | Weak overall performance; deadlift recall was 0.06 despite precision of 1.00 |
+| VGG16 | 69% | Stronger result in this experiment; smoother learning curves and better separation |
+
+The report selects VGG16 as the stronger candidate for this dataset and training configuration. These scores describe the reported experiment and should not be interpreted as production performance.
 
 ## Core competencies
 
-Computer vision, multiclass image classification, transfer learning, CNN adaptation, model evaluation, confusion-matrix analysis.
+- Computer vision and multiclass image classification
+- Transfer learning with pretrained CNN architectures
+- ResNet50/VGG16 comparison under a shared training setup
+- Evaluation with accuracy, per-class precision/recall, confusion matrices, and learning curves
+- Error analysis, generalization awareness, and responsible use of human movement images
 
-## Code
+## Tools and libraries
 
-`src/train_classifier.py` contains the Python code cells exported from the Phase III notebook. Configure Kaggle access and review the dataset paths before running.
+**Python**, **TensorFlow/Keras**, **KaggleHub**, **scikit-learn**, **NumPy**, **Matplotlib**, **Seaborn**.
+
+## Repository code
+
+`src/train_classifier.py` contains Python code cells exported from the Phase III notebook. Configure Kaggle access and dataset paths before running. The dataset and pretrained weights are downloaded separately and are not included.
 
 ## Setup
 
@@ -22,8 +46,6 @@ Computer vision, multiclass image classification, transfer learning, CNN adaptat
 python -m pip install -r requirements.txt
 ```
 
-TensorFlow model weights and the image dataset are downloaded separately and are not included.
+## Limitations and responsible use
 
-## Data and credentials
-
-No datasets, trained weights, Kaggle credentials, or personal files are included.
+The report notes the need for additional training and validation, particularly for the more complex ResNet50 model. Exercise recognition can affect training decisions; the model should support, not replace, coach judgment. Images of people require appropriate consent and privacy safeguards.
