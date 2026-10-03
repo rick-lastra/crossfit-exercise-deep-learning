@@ -1,6 +1,6 @@
 # CrossFit Exercise Image Classification with Transfer Learning
 
-final project of a deep-learning project exploring automatic recognition of CrossFit movements from images. The report describes the Kaggle **Workout/Exercise Images** dataset as **13,853 images across 22 exercise classes**.
+final project of a deep-learning project exploring automatic recognition of CrossFit movements from images. The report describes the Kaggle [**Workout/Exercise Images** dataset](https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images) as **13,853 images across 22 exercise classes**.
 
 ## Experiment
 
@@ -39,6 +39,10 @@ The report selects VGG16 as the stronger candidate for this dataset and training
 ## Repository code
 
 `src/train_classifier.py` contains Python code cells exported from the project workflow notebook. Configure Kaggle access and dataset paths before running. The dataset and pretrained weights are downloaded separately and are not included.
+
+## Dataset
+
+Download the [Workout/Exercise Images dataset from Kaggle](https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images) under its current terms and place it in the expected local data directory. The images and pretrained model weights are not redistributed in this repository.
 
 ## Setup
 
